@@ -43,6 +43,8 @@ pipeline {
          stage('Install Dependencies') {
             steps {
                 sh "npm install"
+                 def currentDir = pwd()
+                 echo "Current directory: ${currentDir}"
             }
         }
         
