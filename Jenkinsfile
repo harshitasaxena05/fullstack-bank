@@ -74,7 +74,9 @@ pipeline {
         
         stage('Deploy to Conatiner') {
             steps {
-                sh "npm run compose:up -d"
+                 dir('/var/lib/jenkins/workspace/bank/app/') {
+                    sh "docker-compose up -d"
+                }
             }
         }
     }
