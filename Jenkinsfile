@@ -40,11 +40,19 @@ pipeline {
         }
         
         
-         stage('Install Dependencies') {
+        stage('Install Dependencies') {
             steps {
                 sh "npm install"
-                 def currentDir = pwd()
-                 echo "Current directory: ${currentDir}"
+            }
+        }
+
+        stage('Directorychk Stage') {
+            steps {
+                sh '''
+                    # Print the current working directory
+                    currentDir=$(pwd)
+                    echo "Current directory: ${currentDir}"
+                '''
             }
         }
         
